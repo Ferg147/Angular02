@@ -1,0 +1,27 @@
+<h3>Personajes</h3>
+<hr>
+<ul class="list-group">
+    <li *ngFor="
+        let item of personajes; 
+        let i = index; 
+        let isFisrt = first;
+        let isLast = last;
+        let isEven = even;
+        let isOdd = odd;"
+        class="list-group-item d-flex justify-content-between aling-items-center" 
+        [ngClass]="{
+            'list-group-item-dark': isLast,
+            'list-group-item-primary': isEven
+        }"
+        >
+        <div>
+            <span class="text-primary">{{ i + 1 }}.</span>
+            <span> {{item.nombre}} - </span>
+            <strong>Poder </strong>
+            <span> {{item.poder | number}} </span>
+        </div>
+
+        <button class="btn btn-danger" (click)="onDeleteComponent(item.id)">X</button>
+        
+    </li>
+</ul>
